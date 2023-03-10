@@ -3,6 +3,7 @@ FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
 ENV USE_TORCH=1
 ARG DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
@@ -28,6 +29,7 @@ ADD requirements.txt /app/
 ADD setup.py /app/
 
 RUN pip install .
+RUN pip install accelerate
 
 ADD lora_diffusion /app/lora_diffusion
 ADD scripts /app/scripts

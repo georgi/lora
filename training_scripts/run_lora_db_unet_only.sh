@@ -1,9 +1,9 @@
 #https://github.com/huggingface/diffusers/tree/main/examples/dreambooth
 export MODEL_NAME="stabilityai/stable-diffusion-2-1-base"
-export INSTANCE_DIR="./input"
-export OUTPUT_DIR="./output"
+export INSTANCE_DIR="/app/input"
+export OUTPUT_DIR="/app/output"
 
-accelerate launch train_lora_dreambooth.py \
+accelerate launch training_scripts/train_lora_dreambooth.py \
 	--pretrained_model_name_or_path=$MODEL_NAME \
 	--instance_data_dir=$INSTANCE_DIR \
 	--output_dir=$OUTPUT_DIR \
